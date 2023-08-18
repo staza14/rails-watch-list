@@ -1,7 +1,18 @@
-<h1>hi from lists</h1>
-<ul>
-<% @lists.each do |list| %>
- <li><%=link_to list.name, list_path(list) %></li>
-<% end %>
-</ul>
-<%=link_to 'Add a list', new_list_path %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>All your favourite movies in one place!</h1>
+    <p>Check out all your lists.</p>
+    <button class="btn btn-ghost button-border"><%=link_to "create a new list", new_list_path %></button>
+  </div>
+</div>
+
+<div class="card-container">
+  <% @lists.each do |list| %>
+    <div class="card-category mt-5 mb-0 mx-5 " >
+      <button class = "btn btn-ghost button-border"><%=link_to list.name, list_path(list) %></button>
+      <% if list.photo.attached? %>
+        <%= cl_image_tag list.photo.key, height: 100, width: 100, crop: :fill %></li>
+      <% end %>
+  </div>
+    <% end %>
+</div>

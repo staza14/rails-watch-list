@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: auto;
+}
+.button-border {
+  border-radius: 6px;
+  border-color: azure;
+  color: azure ;
+  text-decoration: none;
+  a:link{
+    text-decoration: none;
+    padding: 4px;
+}
+}

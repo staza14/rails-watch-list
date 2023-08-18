@@ -1,5 +1,8 @@
-<h1>Hi from new list page</h1>
+<div class= "container mt-3">
+<h1>Lets create a new movie list.</h1>
 <%= simple_form_for @list do |f| %>
   <%= f.input :name %>
-  <%= f.button :submit %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
 <% end %>
+</div>
