@@ -1,4 +1,4 @@
-<h1>Hello from adding movies page</h1>
+<div class= 'styled-form container mt-5 text-bg-secondary p-5 rounded-2' style='--bs-bg-opacity: .25;'>
 <h3>Add a movie to <%= @list.name %></h3>
 
 <%= simple_form_for ([@list, @bookmark]) do |f| %>
@@ -6,3 +6,4 @@
   <%= f.association :movie, collection: Movie.where.not(id: @list.movies.pluck(:id)) %>
   <%= f.submit %>
 <% end %>
+</div>

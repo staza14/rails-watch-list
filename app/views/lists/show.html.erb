@@ -1,25 +1,30 @@
-<div class = "container">
-<h2><%=  @list.name%></h2>
-<%=link_to 'add a movie',  new_list_bookmark_path(@list)%>
-</div>
-<div>
-<p>check out all <%= @list.movies.count %> movies in this list.</p>
-</div>
-
-
-<div class="card-container">
-<% @list.bookmarks.each do |bookmark| %>
-<div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-  <div class="card-product-infos">
-    <h2><%= bookmark.movie.title %></h2>
-    <p><%= bookmark.comment %></p>
-<%= link_to "delete", bookmark_path(bookmark), data: {turbo_method: :delete} %>
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%=  @list.name%></h1>
+    <p>check out all <%= @list.movies.count %> movies in this list.</p>
+    <div class= " mt-5 add-movie">
+    <%=link_to 'add a movie',  new_list_bookmark_path(@list)%>
+    </div>
   </div>
 </div>
-<% end %>
-</div>
 
-<div>
-<%=link_to 'go back to all lists', lists_path %>
+<div class="card-container">
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= bookmark.movie.title %> | <i class="fa-solid fa-star"></i> <%= bookmark.movie.rating %></h2>
+        <p><%= bookmark.movie.overview %></p>
+        <div class='mt-5'>
+        <h6>Comment</h6>
+        <p><%= bookmark.comment %></p>
+        </div>
+        <div class="delete-button">
+          <%= link_to  bookmark_path(bookmark), data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-trash fa-xl"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+<% end %>
 </div>
